@@ -41,125 +41,180 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (isCadillac) {
-                    countDownTimer = new CountDownTimer(1000, 1000) {
-                        @Override
-                        public void onTick(long l) {
-                            YoYo.with(Techniques.Tada)
-                                    .duration(300)
-                                    .repeat(1)
-                                    .playOn(findViewById(R.id.btn_cadillac));
-                            btnCadillac.setBackgroundResource(R.drawable.corectk);
-                        }
+                    Toast.makeText(MainActivity.this,"Правильно",Toast.LENGTH_SHORT).show();
+                    YoYo.with(Techniques.Tada)
+                            .duration(300)
+                            .repeat(1)
+                            .withListener(new Animator.AnimatorListener() {
+                                @Override
+                                public void onAnimationStart(Animator animator) {
+                                    btnCadillac.setBackgroundColor(Color.GREEN);
+                                }
 
-                        @Override
-                        public void onFinish() {
-                            btnCadillac.setBackgroundResource(R.drawable.deffault);
-                            Toast.makeText(MainActivity.this, "Верно", Toast.LENGTH_SHORT).show();
-                        }
-                    }.start();
-                } else
-                    countDownTimer = new CountDownTimer(1000, 1000) {
-                        @Override
-                        public void onTick(long l) {
-                            YoYo.with(Techniques.Tada)
-                                    .duration(300)
-                                    .repeat(1)
-                                    .playOn(findViewById(R.id.btn_cadillac));
-                            btnCadillac.setBackgroundResource(R.color.inCorrect);
-                        }
+                                @Override
+                                public void onAnimationEnd(Animator animator) {
+                                    btnCadillac.setBackgroundColor(Color.BLUE);
+                                }
 
-                        @Override
-                        public void onFinish() {
-                            btnCadillac.setBackgroundResource(R.drawable.deffault);
-                            Toast.makeText(MainActivity.this, "Неверно", Toast.LENGTH_SHORT).show();
-                        }
-                    }.start();
-//                                                btnCadillac.setBackgroundResource(R.drawable.deffault);
+                                @Override
+                                public void onAnimationCancel(Animator animator) {
+
+                                }
+
+                                @Override
+                                public void onAnimationRepeat(Animator animator) {
+
+                                }
+                            })
+                            .playOn(findViewById(R.id.btn_cadillac));
+                }else {
+                    Toast.makeText(MainActivity.this,"Неправильно",Toast.LENGTH_SHORT).show();
+                    YoYo.with(Techniques.Tada)
+                            .duration(300)
+                            .repeat(1)
+                            .withListener(new Animator.AnimatorListener() {
+                                @Override
+                                public void onAnimationStart(Animator animator) {
+                                    btnCadillac.setBackgroundColor(Color.RED);
+                                }
+
+                                @Override
+                                public void onAnimationEnd(Animator animator) {
+                                    btnCadillac.setBackgroundColor(Color.BLUE);
+                                }
+
+                                @Override
+                                public void onAnimationCancel(Animator animator) {
+
+                                }
+
+                                @Override
+                                public void onAnimationRepeat(Animator animator) {
+
+                                }
+                            })
+                            .playOn(btnCadillac);
+                }
             }
         });
-
         btnMustang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (isMustang) {
-                    countDownTimer = new CountDownTimer(1000, 1000) {
-                        @Override
-                        public void onTick(long l) {
-                            Log.e("tag", "corretc");
-                            YoYo.with(Techniques.Tada)
-                                    .duration(300)
-                                    .repeat(1)
-                                    .playOn(findViewById(R.id.btn_mustang));
-                            btnMustang.setBackgroundResource(R.drawable.corectk);
-                        }
+                    Toast.makeText(MainActivity.this,"Правильно",Toast.LENGTH_SHORT).show();
+                    YoYo.with(Techniques.Tada)
+                            .duration(300)
+                            .repeat(1)
+                            .withListener(new Animator.AnimatorListener() {
+                                @Override
+                                public void onAnimationStart(Animator animator) {
+                                    btnMustang.setBackgroundColor(Color.GREEN);
+                                }
 
-                        @Override
-                        public void onFinish() {
-                            btnMustang.setBackgroundResource(R.drawable.deffault);
-                            Toast.makeText(MainActivity.this, "Верно", Toast.LENGTH_SHORT).show();
-                        }
-                    }.start();
+                                @Override
+                                public void onAnimationEnd(Animator animator) {
+                                    btnMustang.setBackgroundColor(Color.BLUE);
+                                }
 
-                } else {
-                    countDownTimer = new CountDownTimer(1000, 1000) {
-                        @Override
-                        public void onTick(long l) {
-                            YoYo.with(Techniques.Tada)
-                                    .duration(300)
-                                    .repeat(1)
-                                    .playOn(findViewById(R.id.btn_mustang));
-                            btnMustang.setBackgroundResource(R.color.inCorrect);
-                        }
+                                @Override
+                                public void onAnimationCancel(Animator animator) {
 
-                        @Override
-                        public void onFinish() {
-                            btnMustang.setBackgroundResource(R.drawable.deffault);
-                            Toast.makeText(MainActivity.this, "Неверно", Toast.LENGTH_SHORT).show();
-                        }
-                    }.start();
+                                }
+
+                                @Override
+                                public void onAnimationRepeat(Animator animator) {
+
+                                }
+                            })
+                            .playOn(btnMustang);
+                }else {
+                    Toast.makeText(MainActivity.this,"Неправильно",Toast.LENGTH_SHORT).show();
+                    YoYo.with(Techniques.Tada)
+                            .duration(300)
+                            .repeat(1)
+                            .withListener(new Animator.AnimatorListener() {
+                                @Override
+                                public void onAnimationStart(Animator animator) {
+                                    btnMustang.setBackgroundColor(Color.RED);
+                                }
+
+                                @Override
+                                public void onAnimationEnd(Animator animator) {
+                                    btnMustang.setBackgroundColor(Color.BLUE);
+                                }
+
+                                @Override
+                                public void onAnimationCancel(Animator animator) {
+
+                                }
+
+                                @Override
+                                public void onAnimationRepeat(Animator animator) {
+
+                                }
+                            })
+                            .playOn(btnMustang);
                 }
             }
         });
-
         btnPeugeot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (isPeugeot) {
-                    countDownTimer = new CountDownTimer(1000, 1000) {
-                        @Override
-                        public void onTick(long l) {
-                            Log.e("tag", "corretc");
-                            YoYo.with(Techniques.Tada)
-                                    .duration(300)
-                                    .repeat(1)
-                                    .playOn(findViewById(R.id.btn_peugeot));
-                            btnPeugeot.setBackgroundResource(R.drawable.corectk);
-                        }
+                    Toast.makeText(MainActivity.this,"Правильно",Toast.LENGTH_SHORT).show();
+                    YoYo.with(Techniques.Tada)
+                            .duration(300)
+                            .repeat(1)
+                            .withListener(new Animator.AnimatorListener() {
+                                @Override
+                                public void onAnimationStart(Animator animator) {
+                                    btnPeugeot.setBackgroundColor(Color.GREEN);
+                                }
 
-                        @Override
-                        public void onFinish() {
-                            btnPeugeot.setBackgroundResource(R.drawable.deffault);
-                            Toast.makeText(MainActivity.this, "Верно", Toast.LENGTH_SHORT).show();
-                        }
-                    }.start();
+                                @Override
+                                public void onAnimationEnd(Animator animator) {
+                                    btnPeugeot.setBackgroundColor(Color.BLUE);
+                                }
 
+                                @Override
+                                public void onAnimationCancel(Animator animator) {
+
+                                }
+
+                                @Override
+                                public void onAnimationRepeat(Animator animator) {
+
+                                }
+                            })
+                            .playOn(btnPeugeot);
                 } else {
-                    countDownTimer = new CountDownTimer(1000, 1000) {
-                        @Override
-                        public void onTick(long l) {
-                            YoYo.with(Techniques.Tada)
-                                    .duration(300)
-                                    .repeat(1)
-                                    .playOn(findViewById(R.id.btn_peugeot));
-                            btnPeugeot.setBackgroundResource(R.color.inCorrect);
-                        }
+                    Toast.makeText(MainActivity.this,"Неправильно",Toast.LENGTH_SHORT).show();
+                    YoYo.with(Techniques.Tada)
+                            .duration(300)
+                            .repeat(1)
+                            .withListener(new Animator.AnimatorListener() {
+                                @Override
+                                public void onAnimationStart(Animator animator) {
+                                    btnPeugeot.setBackgroundColor(Color.RED);
+                                }
 
-                        @Override
-                        public void onFinish() {
-                            btnPeugeot.setBackgroundResource(R.drawable.deffault);
-                            Toast.makeText(MainActivity.this, "Неверно", Toast.LENGTH_SHORT).show();
-                        }
-                    }.start();
+                                @Override
+                                public void onAnimationEnd(Animator animator) {
+                                    btnPeugeot.setBackgroundColor(Color.BLUE);
+                                }
+
+                                @Override
+                                public void onAnimationCancel(Animator animator) {
+
+                                }
+
+                                @Override
+                                public void onAnimationRepeat(Animator animator) {
+
+                                }
+                            })
+                            .playOn(btnPeugeot);
+
                 }
             }
         });
